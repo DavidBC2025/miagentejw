@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Agente de Copilot Studio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        #login, #chat {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #chat {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        input[type="password"] {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+        }
+        iframe {
+            width: 100%;
+            height: 90vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="login">
+        <h2>Acceso protegido</h2>
+        <p>Introduce la contraseña para acceder al agente:</p>
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="checkPassword()">Entrar</button>
+        <p id="error" style="color:red;"></p>
+    </div>
+
+    <div id="chat">
+        https://copilotstudio.microsoft.com/environments/Default-6fd48f41-af81-45a5-9c1e-e3990bc27e7c/bots/cr864_jwInvestigacion/webchat?__version__=2
+    </div>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById("password").value;
+            if (input === "clave123") {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("chat").style.display = "block";
+            } else {
+                document.getElementById("error").textContent = "Contraseña incorrecta.";
+            }
+        }
+    </script>
+</body>
+</html>
